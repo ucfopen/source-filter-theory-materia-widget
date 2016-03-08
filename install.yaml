@@ -1,0 +1,33 @@
+---
+general:
+  name: Source Filter Theory
+  group: Materia
+  height: 548
+  width: 800
+  in_catalog: Yes
+  is_editable: Yes
+  is_playable: Yes
+  is_qset_encrypted: Yes
+  is_answer_encrypted: Yes
+  is_storage_enabled: No
+  api_version: 2
+files:
+  creator: creator.html
+  player: player.html
+  flash_version: 0
+score:
+  is_scorable: Yes
+  score_module: SourceFilterTheory
+meta_data:
+  features:
+    - Customizable
+    - Scorable
+  supported_data:
+    - Multiple Choice
+  about: >
+    This is a simple widget for first-time 
+    Materia developers to get a feel for how Widgets work. 
+
+  # The text displayed on the widget catalog page.
+  excerpt: >
+    A basic "Hello World" type Widget for first-time Materia developers.
