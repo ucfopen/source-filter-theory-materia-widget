@@ -4,8 +4,8 @@ general:
   group: Materia
   height: 580
   width: 740
-  in_catalog: Yes
-  is_editable: Yes
+  in_catalog: No
+  is_editable: No
   is_playable: Yes
   is_qset_encrypted: Yes
   is_answer_encrypted: Yes
@@ -16,18 +16,8 @@ files:
   player: player.html
   flash_version: 0
 score:
-  is_scorable: Yes
+  is_scorable: No
   score_module: SourceFilterTheory
 meta_data:
-  features:
-    - Customizable
-    - Scorable
-  supported_data:
-    - Multiple Choice
   about: >
-    This is a simple widget for first-time 
-    Materia developers to get a feel for how Widgets work. 
-
-  # The text displayed on the widget catalog page.
-  excerpt: >
-    A basic "Hello World" type Widget for first-time Materia developers.
+    This is a simple tutorial of source filter theory for vowel sounds

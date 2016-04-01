@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="popupCreator">
+<head>
+	<meta charset="utf-8" />
+	<title>Materia POPUP Widget</title>
+	<link rel="stylesheet" href="creator.css">
+</head>
+<body ng-controller="popupCtrl">
+
+	<header>
+		{{widget.engineName}}
+	</header>
+
+	<div class="container">
+		<h1>How to create your widget:</h1>
+		<ol>
+			<li>
+				<p>
+					First, give your widget a name:
+				</p>
+				<input type="text" ng-model="widget.title" placeholder="Widget name..." />
+			</li>
+
+			<li>
+				<p>
+					Then, click <b ng-if="!state.isEditingExistingWidget">Publish</b><b ng-if="state.isEditingExistingWidget">Update</b> at the top of the page.
+				</p>
+			</li>
+		</ol>
+	</div>
+
+	<!-- REQUIRED MATERIA JS -->
+	<script type="text/javascript" src="materia.creatorcore.js"></script>
+	<script type="text/javascript" src="materia.storage.manager.js"></script>
+	<script type="text/javascript" src="materia.storage.table.js"></script>
+
+	<!-- YOUR PREREQUISITES -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+
+	<!-- MAIN APP -->
+	<script src="creator.js"></script>
+</body>
+</html>
