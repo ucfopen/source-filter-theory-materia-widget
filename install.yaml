@@ -1,0 +1,23 @@
+---
+general:
+  name: Source Filter Theory
+  group: Materia
+  height: 580
+  width: 740
+  in_catalog: No
+  is_editable: No
+  is_playable: Yes
+  is_qset_encrypted: Yes
+  is_answer_encrypted: Yes
+  is_storage_enabled: No
+  api_version: 2
+files:
+  creator: creator.html
+  player: player.html
+  flash_version: 0
+score:
+  is_scorable: No
+  score_module: SourceFilterTheory
+meta_data:
+  about: >
+    This is a simple tutorial of source filter theory for vowel sounds

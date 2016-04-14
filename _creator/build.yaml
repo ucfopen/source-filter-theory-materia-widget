@@ -1,6 +1,0 @@
----
-type: copy
-target: creator.html
-include:
-  - css/
-  - js/

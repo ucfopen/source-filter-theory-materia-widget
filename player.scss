@@ -1,0 +1,13 @@
+html, body {
+	z-index: 2;
+
+	overflow-x: hidden;
+	overflow-y: hidden;
+
+	height: 100%;
+	margin: 0;
+	padding: 0;
+
+	cursor: default;
+	user-select: none;
+}
