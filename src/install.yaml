@@ -2,8 +2,8 @@
 general:
   name: Source Filter Theory
   group: Materia
-  height: 580
-  width: 740
+  height: 540
+  width: 720
   in_catalog: No
   is_editable: No
   is_playable: Yes
@@ -21,3 +21,5 @@ score:
 meta_data:
   about: >
     This is a simple tutorial of source filter theory for vowel sounds
+  excerpt: >
+    Demonstrates 'ee', 'ah', and 'oo' vowel sounds

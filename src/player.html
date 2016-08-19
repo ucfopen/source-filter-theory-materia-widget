@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<!-- INJECTS IE CLASSES ONTO HTML TAG -->
+<!--[if IE 8 ]>    <html class="IE8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="IE9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
+	<head>
+		<title>Be Finder</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- STYLESHEETS -->
+		<link rel="stylesheet" type="text/css" href="player.css">
+		<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet" type="text/css">
+
+		<!-- REQUIRED MATERIA JAVASCRIPT -->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="materia.enginecore.js"></script>
+		<script src="materia.score.js"></script>
+
+		<!-- OPTIONAL MATERIA JAVASCRIPT -->
+		<!-- <script src="materia.storage.manager.js"></script> -->
+		<!-- <script src="materia.storage.table.js"></script> -->
+
+		<!-- YOUR PREREQUISITES -->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular.min.js"></script>
+
+		<!-- MAIN PLAYER SCRIPT -->
+		<script src="player.js"></script>
+
+		<!-- BE FINDER SCRIPT -->
+	</head>
+	<body ng-app="sourceFilterTheory">
+		<div id="container" ng-controller="sourceFilterTheoryCtrl">
+			<h1 id="primaryHeader" ng-hide="currentStep==1">Source Filter Theory for vowel sounds</h1>
+			<div id="backButton" class="navButton" ng-click="stepBack()" ng-hide="currentStep==1"></div>
+			<div id="forwardButton" class="navButton" ng-click="stepForward()" ng-hide="currentStep==1 || currentStep == maxStep"></div>
+
+			<div id="page1" ng-show="currentStep==1">
+				<div class="leftSide">
+					<h1>Source</h1>
+					<h1>Filter</h1>
+					<h1>Theory</h1>
+					<p>for vowel sounds</p>
+					<button ng-click="stepForward()">Start Tutorial</button>
+				</div>
+				<img src="assets/images/head.png"/>
+			</div>
+			<div id="page2" ng-show="currentStep==2">
+				<div class="center">
+					<p>
+						To move to the next page or advance to the next screen at any time, click the Right Arrow button (always located on the lower right hand of the screen).
+					</p>
+					<p>
+						To move to the previous page, click the Left Arrow button (always located on the lower left hand of the screen).
+					</p>
+					<p>
+						To obtain more information, click on any underlined glossary terms whenever one appears.
+					</p>
+				</div>
+			</div>
+			<div id="page3" ng-show="currentStep==3">
+				<div class="center">
+					<p class="larger">
+						In this tutorial, you will learn the source filter theory as it pertains to the following three vowel sounds:
+					</p>
+					<p class="larger gaps">
+						<span>"ee" / <strong>i</strong> / as in bee</span>
+						<span>"ah" / <strong>a</strong> / as in pot</span>
+						<span>"oo" / <strong>u</strong> / as in boo</span>
+					</p>
+				</div>
+			</div>
+			<div id="page4" ng-show="currentStep==4">
+				<img class="leftSide" src="assets/images/head.png"/>
+				<div class="actionBox" ng-click="vocalFoldsClicked=true">
+					<div class="arrowContainer">
+						<div class="arrowShaft"></div>
+						<div class="arrowHead"></div>
+					</div>
+					<p>vocal folds</p>
+				</div>
+				<div class="animateRight">
+					<img src="assets/images/simpleWaveform.png" ng-class="{animate: vocalFoldsClicked}"/>
+					<p ng-class="{animate: vocalFoldsClicked}">simple periodic waveform</p>
+				</div>
+				<div class="exposition">
+					<p>
+						Human vowel sounds are produced with a. Laryngeal Source (voicing):
+						the sound wave produced by the vibrating <span class="define" ng-click="modalDefine(0)">vocal folds.</span>
+					</p>
+				</div>
+			</div>
+			<div id="page5" ng-show="currentStep==5">
+				<img class="leftSide" src="assets/images/head.png"/>
+				<div class="actionBox vocalTractBox" ng-click="vocalTractClicked=true">
+					<div class="arrowContainer">
+						<div class="arrowShaft"></div>
+						<div class="arrowHead"></div>
+					</div>
+					<p>vocal tract</p>
+				</div>
+				<div class="actionBox vocalFoldsBox" ng-click="vocalFoldsClicked=true">
+					<div class="arrowContainer">
+						<div class="arrowShaft"></div>
+						<div class="arrowHead"></div>
+					</div>
+					<p>vocal folds</p>
+				</div>
+				<div class="animateRight complexWaveForm">
+					<img src="assets/images/complexWaveform.png" ng-class="{animate: vocalTractClicked}"/>
+					<p ng-class="{animate: vocalTractClicked}">complex periodic waveform</p>
+				</div>
+				<div class="animateRight simpleWaveForm">
+					<img src="assets/images/simpleWaveform.png" ng-class="{animate: vocalFoldsClicked}"/>
+					<p ng-class="{animate: vocalFoldsClicked}">simple periodic waveform</p>
+				</div>
+				<div class="exposition">
+					<p>
+						Human vowel sounds are produced with:
+						<br/>a. Laryngeal <strong>Source</strong> (voicing): the sound wave produced by the <span class="define" ng-click="modalDefine(1)">vibrating vocal folds</span> and
+						<br/>b. a '<strong>filter</strong>': the process whereby the <span class="define" ng-click="modalDefine(2)">vocal tract</span> modifies the sound of the vibrating vocal folds
+					</p>
+					<p class="small">
+						The result of the filtering of the vocal tract is that the simple sinusoid waveform of the vibrating vocal folds is changed into a complex waveform.
+						We hear this complex waveform that is radiated out of the mouth of the speaker as the different vowel sounds.
+					</p>
+				</div>
+			</div>
+			<div id="page6" ng-show="currentStep==6">
+				<img class="leftSide" src="assets/images/head.png"/>
+				<div class="waveFormContainer" ng-click="standaloneClicked=true">
+					<div class="imageHolder" ng-class="{still: standaloneClicked}">
+						<img src="assets/images/complexWaveform.png" ng-class="{animatedWaveform: !standaloneClicked}"/>
+					</div>
+					<p>complex periodic waveform</p>
+					<div class="imageHolder" ng-class="{still: standaloneClicked}">
+						<img src="assets/images/simpleWaveform.png" ng-class="{animatedWaveform: !standaloneClicked}"/>
+					</div>
+					<p>simple periodic waveform</p>
+				</div>
+				<div class="exposition">
+					<p>
+						Let's take a closer look at one cycle.
+						The rate of vibration of a vocal fold for a typical male speaker is about 100x per second.
+						Click on the waveform diagram below.
+					</p>
+					<p class="startHidden" ng-class="{visible: standaloneClicked}">
+						This is one cycle or one opening and closing of the vocal chords.
+						Click the arrow on the right to continue.
+					</p>
+				</div>
+			</div>
+			<div id="page7" ng-show="currentStep==7">
+				<img class="leftSide" src="assets/images/head.png"/>
+				<div class="waveFormContainer" ng-click="standaloneClicked=true" ng-class="{hidden: standaloneClicked}">
+					<img src="assets/images/complexWaveform.png"/>
+					<img src="assets/images/simpleWaveform.png"/>
+				</div>
+				<div class="chartContainer" ng-class="{visible: standaloneClicked}">
+					<span class="big">=</span>
+					<span>
+						<img src="assets/images/spectrumChart.png">
+						<br/>
+						frequency spectrum
+					</span>
+				</div>
+				<div class="exposition">
+					<p>
+						Let's take a look at this waveform represented as a frequency spectrum.
+						Click on the diagram of the one cycle.
+					</p>
+				</div>
+			</div>
+			<div id="page8" ng-show="currentStep==8">
+				<div class="leftSide">
+					<div class="definitionLink first">
+						<span class="define" ng-click="modalDefine(3)">Fundamental frequency</span>
+						<div class="arrowContainer">
+							<div class="arrowShaft"></div>
+							<div class="arrowHead"></div>
+						</div>
+					</div>
+					<div class="definitionLink second">
+						Second <span class="define" ng-click="modalDefine(4)">harmonic</span>
+						<div class="arrowContainer">
+							<div class="arrowShaft"></div>
+							<div class="arrowHead"></div>
+						</div>
+					</div>
+					<div class="definitionLink third">
+						Third <span class="define" ng-click="modalDefine(4)">harmonic</span>
+						<div class="arrowContainer">
+							<div class="arrowShaft"></div>
+							<div class="arrowHead"></div>
+						</div>
+					</div>
+
+					<img src="assets/images/spectrumChart.png"/>
+					<div class="chartLegend">
+						<span class="vertical">100</span>
+						<p>
+							Source Frequency
+							<br/>
+							(Hz)
+						</p>
+					</div>
+				</div>
+				<div class="exposition">
+					This is called the Laryngeal Source Spectrum (this is a depiction of the physics of the source waveform - mainly the diagram of one cycle).
+				</div>
+			</div>
+			<div id="page9" ng-show="currentStep==9">
+				<div class="exposition">
+					The filtering effects of the vocal tract (part 1):
+					This is an animated depiction of the filtering effect of the vocal tract.
+					As the vocal folds make a sound, it is changed by the vocal tract and some harmonics are emphasized, some are dampened by the filtering effects of the vocal tract.
+				</div>
+				<div class="leftSide">
+					<img class="wave" src="assets/images/filterWave.png" ng-class="{visible: standaloneClicked}"/>
+					<img src="assets/images/spectrumChart.png">
+					<div class="chartLegend">
+						<span class="vertical">100</span>
+						<p>
+							Source Frequency
+							<br/>
+							(Hz)
+						</p>
+					</div>
+				</div>
+				<button class="purpleButton" ng-click="standaloneClicked=true">
+					Click here to view part 1 of the filtering effects of the vocal tract on the vibrating vocal folds.
+				</button>
+			</div>
+			<div id="page10" ng-show="currentStep==10">
+				<div class="exposition">
+					The filtering effects of the vocal tract (part 2): the first peak (first formant or F<sub>1</sub>) relates to the pharyngeal cavity, the second peak (second formant or F<sub>2</sub>) relates to the oral cavity (similar to the workings of a piston).
+				</div>
+				<div class="leftSide">
+					<img class="wave" src="assets/images/filterWave.png"/>
+					<img class="chartImage" src="assets/images/spectrumChart.png" ng-class="{hidden: standaloneClicked}"/>
+					<img class="chartImage" src="assets/images/spectrumChartCutoff.png" />
+					<div class="chartLegend">
+						<span class="vertical">100</span>
+						<p>
+							Source Frequency
+							<br/>
+							(Hz)
+						</p>
+					</div>
+				</div>
+				<button class="purpleButton" ng-click="standaloneClicked=true">
+					Click here to review part 2 of the filtering effects of the vocal tract on the vibrating vocal folds.
+				</button>
+			</div>
+			<div id="page11" ng-show="currentStep==11">
+				<div class="exposition">
+					<span class="define" ng-click="playAudio('eeNormal')">"ee"</span> / <strong>i</strong> / as in bee
+					<br/>
+					This diagram is a depiction of the <span class="define" ng-click="playAudio('eeNormal')">"ee"</span> sound as in the word "bee."
+					To produce the <span class="define" ng-click="playAudio('eeNormal')">"ee"</span> sound, the tongue is high and forward in the mouth.
+					(Notice the oral cavity is small and pharyngeal cavity is large.)
+				</div>
+				<div class="floaters">
+					<img class="head" src="assets/images/head2.png">
+					<img class="chart" src="assets/images/spectrumChart2.png">
+					<div class="oCavity">Oral Cavity</div>
+					<div class="arrowContainer oCavityArrow">
+						<div class="arrowShaft"></div>
+						<div class="arrowHead"></div>
+					</div>
+					<div class="pCavity">Pharyngeal<br/>Cavity</div>
+					<div class="arrowContainer pCavityArrow">
+						<div class="arrowShaft"></div>
+						<div class="arrowHead"></div>
+					</div>
+					<div class="tongue">Tongue</div>
+					<div class="firstF1">F<sub>1</sub></div>
+					<div class="firstF2">F<sub>2</sub></div>
+					<div class="secondF1">F<sub>1</sub></div>
+					<div class="secondF2">F<sub>2</sub></div>
+					<div class="firstFormant"><span class="define" ng-click="modalDefine(5)">first formant</span></div>
+					<div class="arrowContainer firstFormantArrow">
+						<div class="arrowShaft"></div>
+						<div class="arrowHead"></div>
+					</div>
+					<div class="secondFormant"><span class="define" ng-click="modalDefine(5)">second formant</span></div>
+					<div class="arrowContainer secondFormantArrow">
+						<div class="arrowShaft"></div>
+						<div class="arrowHead"></div>
+					</div>
+				</div>
+			</div>
+			<div id="page12" ng-show="currentStep==12">
+				<div class="exposition">
+					This is a representation for the same <span class="define" ng-click="playAudio('eeHigh')">"ee"</span> sound only produced with a higher voice.
+					Notice, with a higher voice, due to the faster rate of vibration of the vocal chords, the harmonics get further apart (the distance between them increases); but the peaks remain the same.
+				</div>
+				<div class="floaters">
+					<img class="chart" src="assets/images/spectrumChart3.png"/>
+					<div class="f1">F<sub>1</sub></div>
+					<div class="f2">F<sub>2</sub></div>
+					<div class="firstFormant">first formant</div>
+					<div class="arrowContainer firstFormantArrow">
+						<div class="arrowShaft"></div>
+						<div class="arrowHead"></div>
+					</div>
+					<div class="secondFormant">second formant</div>
+					<div class="arrowContainer secondFormantArrow">
+						<div class="arrowShaft"></div>
+						<div class="arrowHead"></div>
+					</div>
+				</div>
+			</div>
+			<div id="page13" ng-show="currentStep==13">
+				<div class="exposition">
+					<span class="define" ng-click="playAudio('ah')">"ah"</span> / <strong>a</strong> / as in pot
+					<br/>
+					Here is the second sound presented. It is the <span class="define" ng-click="playAudio('ah')">"ah"</span> sound as in the word "pot."
+					Notice, now, to formulate the <span class="define" ng-click="playAudio('ah')">"ah"</span> sound, the tongue lowers and moves back.
+					The oral cavity becomes larger and the pharyngeal cavity becomes smaller; so F<sub>2</sub> gets lower and F<sub>1</sub> gets higher.
+					The harmonics remain the same because the vocal folds are vibrating at the same rate.
+				</div>
+				<div class="floaters">
+					<img class="head" src="assets/images/head3.png">
+					<img class="chart" src="assets/images/spectrumChart4.png">
+					<div class="oCavity">Oral Cavity</div>
+					<div class="arrowContainer oCavityArrow">
+						<div class="arrowShaft"></div>
+						<div class="arrowHead"></div>
+					</div>
+					<div class="pCavity">Pharyngeal<br/>Cavity</div>
+					<div class="arrowContainer pCavityArrow">
+						<div class="arrowShaft"></div>
+						<div class="arrowHead"></div>
+					</div>
+					<div class="tongue">Tongue</div>
+					<div class="firstF1">F<sub>1</sub></div>
+					<div class="firstF2">F<sub>2</sub></div>
+					<div class="secondF1">F<sub>1</sub></div>
+					<div class="secondF2">F<sub>2</sub></div>
+					<div class="firstFormant">first formant</div>
+					<div class="arrowContainer firstFormantArrow">
+						<div class="arrowShaft"></div>
+						<div class="arrowHead"></div>
+					</div>
+					<div class="secondFormant">second formant</div>
+					<div class="arrowContainer secondFormantArrow">
+						<div class="arrowShaft"></div>
+						<div class="arrowHead"></div>
+					</div>
+				</div>
+			</div>
+			<div id="page14" ng-show="currentStep==14">
+				<div class="exposition">
+					<span class="define" ng-click="playAudio('oo')">"oo"</span> / <strong>u</strong> / as in boo
+					<br/>
+					Here is the last vowel sound presented in this tutorial. It is the <span class="define" ng-click="playAudio('oo')">"oo"</span> sound as in the word "boo."
+					Notice that the tongue is higher than that for "ah" /a/, but not as high as "ee" /i/, but further back in the mouth.
+					The lips are rounded, which makes the vocal tract a little longer and lowers both formants to the same degree.
+				</div>
+				<div class="floaters">
+					<img class="head" src="assets/images/head4.png">
+					<img class="chart" src="assets/images/spectrumChart5.png">
+					<div class="oCavity">Oral Cavity</div>
+					<div class="arrowContainer oCavityArrow">
+						<div class="arrowShaft"></div>
+						<div class="arrowHead"></div>
+					</div>
+					<div class="pCavity">Pharyngeal<br/>Cavity</div>
+					<div class="arrowContainer pCavityArrow">
+						<div class="arrowShaft"></div>
+						<div class="arrowHead"></div>
+					</div>
+					<div class="tongue">Tongue</div>
+					<div class="firstF1">F<sub>1</sub></div>
+					<div class="firstF2">F<sub>2</sub></div>
+					<div class="secondF1">F<sub>1</sub></div>
+					<div class="secondF2">F<sub>2</sub></div>
+					<div class="firstFormant">first formant</div>
+					<div class="arrowContainer firstFormantArrow">
+						<div class="arrowShaft"></div>
+						<div class="arrowHead"></div>
+					</div>
+					<div class="secondFormant">second formant</div>
+					<div class="arrowContainer secondFormantArrow">
+						<div class="arrowShaft"></div>
+						<div class="arrowHead"></div>
+					</div>
+				</div>
+			</div>
+			<div id="page15" ng-show="currentStep==15">
+				<div class="exposition">
+					<p>
+						The purpose of this tutorial is to become more comfortable with the ins and outs of the source filter theory.
+						If there is any portion of this tutorial that you do not understand, feel free to go back to that area for review.
+					</p>
+					<p>This tutorial will be available throughout the remainder of this course.</p>
+				</div>
+			</div>
+
+			<div id="definitionContainer" ng-show="definition" ng-class="{visible: definition && !startFade}">
+				<p>{{definition}}</p>
+				<button ng-click="closeDefinition()">GO BACK</button>
+			</div>
+		</div>
+	</body>
+</html>
