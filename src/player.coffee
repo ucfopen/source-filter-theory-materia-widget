@@ -59,6 +59,7 @@ SourceFilterTheory.controller 'sourceFilterTheoryCtrl', ['$scope', '$timeout',  
 
 	$scope.modalDefine = (term) ->
 		$scope.definition = terms[term]
+
 	$scope.closeDefinition = ->
 		$scope.startFade = true
 		definitionTimer = $timeout ->

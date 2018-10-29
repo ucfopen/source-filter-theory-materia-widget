@@ -3,14 +3,19 @@
   "materia": {
     "cleanName": "source-filter-theory"
   },
-  "version": "1.0.0",
+  "version": "2.0.0",
   "scripts": {
     "start": "webpack-dev-server",
+    "build": "webpack -p",
     "build-dev": "webpack",
-    "build": "webpack -p"
+    "test": "TZ='America/New_York' jest --verbose",
+    "test-ci": "TZ='America/New_York' CI=true jest --ci --useStderr --coverage --coverageReporters text-summary cobertura"
   },
   "devDependencies": {
-    "materia-widget-development-kit": "v1.2.2"
+    "materia-widget-development-kit": "^2.0.0"
   },
+  "license": "AGPL-3.0",
+  "author": "University of Central Florida, Center for Distributed Learning",
+  "description": "",
   "license": "AGPL-3.0"
 }
