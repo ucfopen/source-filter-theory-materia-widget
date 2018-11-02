@@ -14,6 +14,7 @@
   "devDependencies": {
     "materia-widget-development-kit": "^2.0.0"
   },
-  "license": "AGPL-3.0",
-  "author": "University of Central Florida, Center for Distributed Learning"
+  "author": "University of Central Florida, Center for Distributed Learning",
+  "description": "This is a simple tutorial of source filter theory for vowel sounds like 'ee', 'ah', and 'oo'",
+  "license": "AGPL-3.0"
 }
