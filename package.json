@@ -9,10 +9,10 @@
     "build": "webpack -p",
     "build-dev": "webpack",
     "test": "TZ='America/New_York' jest --verbose",
-    "test-ci": "TZ='America/New_York' CI=true jest --ci --useStderr --coverage --coverageReporters text-summary cobertura"
+    "test-ci": "echo 'tests not implemented'"
   },
   "devDependencies": {
-    "materia-widget-development-kit": "^2.0.0"
+    "materia-widget-development-kit": "^2.3.0"
   },
   "author": "University of Central Florida, Center for Distributed Learning",
   "description": "This is a simple tutorial of source filter theory for vowel sounds like 'ee', 'ah', and 'oo'",

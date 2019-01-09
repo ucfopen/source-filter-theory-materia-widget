@@ -1,0 +1,29 @@
+language: node_js
+node_js:
+  - '6'
+cache:
+  yarn: true
+  directories:
+    - node_modules
+before_install:
+  - npm config set spin false
+  - npm install -g npm@^5
+script:
+  - yarn test-ci
+  - yarn build
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: "kzGY1Sv8L7tAbFd36hwdKxWDf60DLqqJb3UgJfW0NVV0FhwtXpV85mD1Fao2s2sjoo7XdqW4q+/Wd85fextrf3Yf3DaNzMBz7XsHBQs5eFPOuf7ZL8h2FU99AA6K15MlHF+p6J6KGHeHdUHA//yynoJ4LqZRbssW0yAQhumU3NZSR6Mxx7LIg9GgRMOa+l0h35K0TMLsMFg5AZxLBKol2zOFzYtQvykjuxJX6QQNiGjSXD1TViWXiE2YEULQh1VLQbMJh5cgu0YwK0b5089Ll+d7UU2fqPCzamTcS56LwA1MRamZuO6ek83toBx+5z1ZGULvAL1uaT+Ys6pKvcK89VrNEAAJDMvEFgAZFNb+MVNb6BLeUIog1D7iukRaIyYei1w+t0y842jDeb2EdKW6+s4ZbHnAcDFFL4H/+Su0GzTZ0uI2RQOL8DLq1TEm/dFbRvjUaOPciNrsw0FpZcEgoqeV0Wv+wf/X0WFlvfyyYhnSWPqRvPxiP2kcOe+J6yfHMP+Hvnsl7O/XriAIIbopm7abWT3weTE4oU4WGqjZFPFbqw+iEzfgD45x3+vA623yCKsjSw1Z6IQJGTX4r8zxq2oOVFph6qLLezOQgD6QzBHcc1W4pgMq5/gELidOqw31CUAK9dQ5x24wt1xm+30mZCGcZGkVa/qTokyrJqC0/FU="
+  file:
+    - build/_output/source-filter-theory.wigt
+    - build/_output/source-filter-theory-build-info.yml
+  on:
+    tags: true
+    repo: ucfopen/source-filter-theory-materia-widget
+notifications:
+  email: false
+  slack:
+    secure: "uF2tBtGs/X92AouWjVy6el6ylgpyJ9cvMv1fZSbFjCDjnLuWrszh5e4H6HfXE+gzpdGKZdWPa/8KMM4nRjnk+Tjjtv9BFPepoa3c+DQE6Ozbujbbvah/wFhSf2dvqj7sKCvREEQA/bsucuk/Bph8Sqz5GNjjP9/VN2fvGZBfd0R5lM39eSFVUWv4KfW39tP8hD2QJpE364zmv3rNE0+QUcMuVsj339gqeMfhseyYkHJ4ZbrZz0wt9AljmQawQap9nyQtPn05qHeYMTcXv/0PNq2+CnAf9DT+Z5lGRbTzEvCtN8D+j0XYqecxLgp5Edgczsb1hsnvN2rLBESn3pGyM3AuE0WkoIz5ep4IeHkuwZaKFJjXlrxpcNsE5CbwPtxjCB+ltdZQodLyDLcUEctXr57PRdFfmWHtGvHr8l9v0u20TX8goON8S7GFYbepomLmqAkeiKWhcDiaF9Z+axz09jGofRd2VhQsjxWswbl8Pf54ucfyqEWuCsiV6gIqzn7vPBO3b3zwy+zdmOMXAMOXhMZyux1HWd7fLrCPFWtBEZDzZfFek+hOKMtrvORr8A3fPxQXQ7FrFkdQr92UWn3+QyuY6uw8rQlqZ5vwPCe4fUZRwXdKyTmjxiroeY4nYtRMzQhp4RUrRQoSG15aiyEJ4Z/KRf1IKI7wRYdmJzc2jnw="
+
